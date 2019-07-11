@@ -58,7 +58,7 @@
 			<div class="_7UhW9   xLCgt      MMzan   _0PwGv       uL8Hv         ">
 				<p class="izU2O">
 					계정이 없으신가요? <a href="regMember"><span
-						class="_7UhW9   xLCgt       qyrsm          se6yk        ">가입하기</span></a>
+						class="_7UhW9   xLCgt       qyrsm     se6yk        ">가입하기</span></a>
 				</p>
 			</div>
 		</div>
