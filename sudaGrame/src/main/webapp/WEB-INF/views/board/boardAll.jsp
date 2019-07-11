@@ -9,7 +9,7 @@
 <main class="SCxLW  o64aR" role="main">
 <div class="BSqtQ X6NdS">
 	<div class="Xt-CQ">
-		<h2 class="yQ0j1">팔로우할 만한 계정 둘러보기</h2>
+		<h2 class="yQ0j1">인기 계정 둘러보기</h2>
 		<div
 			class="      tHaIX            Igw0E     IwRSH      eGOV_         _4EzTm                                                                                                              ">
 			<div
@@ -261,7 +261,7 @@
 			</div>
 		</div>
 	</div>
-	<h2 class="yQ0j1" style="margin-top:20px">둘러보기</h2>
+	<h2 class="yQ0j1" style="margin-top:20px">게시글 둘러보기</h2>
 	<article class="v1pSD">
 		<div>
 			<div

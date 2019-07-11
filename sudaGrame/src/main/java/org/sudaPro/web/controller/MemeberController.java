@@ -14,10 +14,6 @@ public class MemeberController {
 	public String myPage() {
 		return "member.myPage";
 	}
-	@RequestMapping("findPerson")
-	public String findPerson() {
-		return "member.findPerson";
-	}
 	
 	@RequestMapping("login")
 	public String login() {

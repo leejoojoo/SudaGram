@@ -14,8 +14,7 @@
 						class="nav-link tm-nav-link tm-text-white myPageBtn" href="myPage">MyPage</a>
 					</li>
 					<li class="nav-item"><a
-						class="nav-link tm-nav-link tm-text-white findBtn" href="findPerson">Find
-							Person</a></li>
+						class="nav-link tm-nav-link tm-text-white findBtn" href="boardAll">Board</a></li>
 					<li class="nav-item active"><a
 						class="nav-link tm-nav-link tm-text-white loginBtn" href="login">Login</a>
 					</li>
