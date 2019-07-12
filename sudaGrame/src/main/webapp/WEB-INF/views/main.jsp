@@ -3,6 +3,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+	$(".nav-item").removeClass("active");
+	$(".nav-link").removeClass("active");
+	$(".mainBtn").parents().addClass("active");
+	$(".mainBtn").addClass("active");
 	$(document).ready(function(){
 		console.log("test : ${ test }");
 	});

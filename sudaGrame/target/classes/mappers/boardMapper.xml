@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.suda.mapper.BoardMapper">
+	<select id="boardAll" resultType="org.sudaPro.web.board.vo.BoardAll">
+		select b.b_code, i.img_img, g_cnt, cm_cnt, img_cnt
+		from(select b.b_code, min(img_code) img_code, count(g_code) g_cnt, count(c.cm_code) cm_cnt, count(img_code) img_cnt
+		from board b join img i on b.b_code = i.b_code
+            	 left join good g on b.b_code = g.b_code
+            	 left join comm c on c.b_code = b.b_code
+		group by b.b_code
+		order by b.b_code desc)b join img i on b.img_code = i.img_code
+	</select>
+	<select id="boardImg" resultType="java.lang.String">
+		select img_img
+		from img
+		where b_code = #{b_code}	
+	</select>
+	<select id="boardComments" resultType="org.sudaPro.web.board.vo.Comments">
+		select c.cm_content, c.cm_date, m.m_id, c.cm_code
+		from comm c join member m on c.m_code = m.m_code
+		where c.b_code = #{ b_code } and c.cm_group = 0
+		order by c.cm_group, c.cm_date
+	</select>
+	<select id="boardOne" resultType="org.sudaPro.web.board.vo.BoardOne">
+		select m.m_id, b_content, m.m_name, b.b_regdate, g_cnt
+		from board b join member m on b.m_code = m.m_code
+		, (select count(g_code) g_cnt from good where b_code = #{ b_code })
+		where b_code = #{ b_code }
+	</select>
+	<select id="childComment" resultType="org.sudaPro.web.board.vo.ChildComm">
+		select cm_content, cm_date, m_id
+		from comm c join member m on c.m_code = m.m_code
+		where cm_group = #{ cm_group }
+	</select>
+</mapper>

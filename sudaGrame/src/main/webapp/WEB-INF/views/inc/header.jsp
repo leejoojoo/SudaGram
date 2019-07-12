@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style>
+	.nav-item:not(.active) a{
+		color: white!important;
+	}
+</style>
 <div class="tm-welcome-section">
 	<div class="container tm-navbar-container">
 		<div class="row">
