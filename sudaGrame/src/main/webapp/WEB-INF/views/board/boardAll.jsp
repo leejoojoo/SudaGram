@@ -4,6 +4,62 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!DOCTYPE html>
+<style>
+	.sortBoard{
+		    width: fit-content;
+    		position: relative;
+    		left: 100%;
+    		transform: translate(-100%, 0);
+    		margin-bottom: 10px;
+	}
+</style>
+<script>
+	function printBoardAll(data){
+		var Bigdiv;
+		$(".boardDiv").empty();
+		$(data).each(function(index, x){
+			if(index % 3 == 0)
+				Bigdiv = $("<div class='Nnq7C weEfm'></div>");
+			var Onediv = $("<div class='v1Nh3 kIKUG  _bz0w boardOne'></div>");
+			var a = $("<a href='boardOne?b_code="+x.b_code+"'></a>");
+			var div = $("<div class='eLAPa'><div class='KL4Bh'><img alt='사진 설명이 없습니다.' class='FFVAD' decoding='auto' sizes='293.0062255859375px' src="+x.img_img+" style='object-fit: cover;'></div></div>");
+			a.append(div);
+			if(x.img_cnt > 1){
+				div = $("<div class='u7YqG'><span class='mediatypesSpriteCarousel__filled__32 u-__7' aria-label='슬라이드'></span></div>");
+				a.append(div);
+			}
+			div = ("<div class='model' style='background-color: rgba(0, 0, 0, 0.3); display: none;'><div class='board_info'><pre>좋아요"+x.g_cnt+"		댓글 "+x.cm_cnt+"</pre></div></div>");
+			a.append(div);
+			Onediv.append(a);
+			Bigdiv.append(Onediv);
+			if(index % 3 > 0 || index == data.length)
+				$(".boardDiv").append(Bigdiv);
+			});
+	};
+
+
+	function BoardSort(sort){
+		console.log(sort);
+		$.ajax({
+		   	url:"boardSort"
+		   	,dataType:"json"
+		   	,type:"post"
+		   	,data: {
+		   		sort:sort
+		   	}
+		   	,cache:false // 항상 새로 읽어오겠다.
+		   	,success:function(data){
+		   		// console.log(data[0].b_code);
+		   		printBoardAll(data);
+		   	}
+		    ,error:function(){
+		      alert("에러~~~~")
+		     } 
+		 });
+	};
+	
+	
+</script>
 <script>
 	$(".nav-item").removeClass("active");
 	$(".nav-link").removeClass("active");
@@ -19,6 +75,19 @@
 		$(".boardOne").on("mouseout", function(){
 			$(this).find(".model").css("display", "none");
 		});
+		
+		$(".sortBoard").on("change", function(){
+			var sort = $(".sortBoard option:selected").val();
+			BoardSort(sort);
+		});
+	});
+	
+	$(document).on("mouseover", ".boardOne", function(){
+		$(this).find(".model").css("display", "block");
+	});
+	
+	$(document).on("mouseout", ".boardOne", function(){
+		$(this).find(".model").css("display", "none");
 	});
 </script>
 <link href="resources/css/boardAll.css" rel="stylesheet">
@@ -278,10 +347,16 @@
 		</div>
 	</div>
 	<h2 class="yQ0j1" style="margin-top: 20px">게시글 둘러보기</h2>
+	<select class="sortBoard">
+		<option value="b.b_code desc">선택하기</option>
+		<option value="b.b_code desc">최신순</option>
+		<option value="g_cnt desc">인기순</option>
+		<option value="cm_cnt desc">댓글순</option>
+	</select>
 	<article class="v1pSD">
 		<div>
 			<!-- 게시글 영역 -->
-			<div
+			<div class="boardDiv"
 				style="flex-direction: column; padding-bottom: 1200px; padding-top: 0px;">
 				<c:forEach items="${ board_all }" var="board" varStatus="status">
 					<c:if test="${ status.index % 3 eq 0 }">
@@ -314,37 +389,6 @@
 			</c:if>
 			</c:forEach>
 		</div>
-</div>
-<div class="_4emnV">
-	<div
-		class="                  Igw0E     IwRSH        YBx95       _4EzTm                                                                                                               _9qQ0O ZUqME"
-		style="height: 32px; width: 32px;">
-		<svg class="  By4nA" viewBox="0 0 100 100">
-								<rect fill="#555555" height="6" opacity="0" rx="3" ry="3"
-				transform="rotate(-90 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.08333333333333333"
-				rx="3" ry="3" transform="rotate(-60 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.16666666666666666"
-				rx="3" ry="3" transform="rotate(-30 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.25" rx="3" ry="3"
-				transform="rotate(0 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.3333333333333333"
-				rx="3" ry="3" transform="rotate(30 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.4166666666666667"
-				rx="3" ry="3" transform="rotate(60 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.5" rx="3" ry="3"
-				transform="rotate(90 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.5833333333333334"
-				rx="3" ry="3" transform="rotate(120 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.6666666666666666"
-				rx="3" ry="3" transform="rotate(150 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.75" rx="3" ry="3"
-				transform="rotate(180 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.8333333333333334"
-				rx="3" ry="3" transform="rotate(210 50 50)" width="25" x="72" y="47"></rect>
-								<rect fill="#555555" height="6" opacity="0.9166666666666666"
-				rx="3" ry="3" transform="rotate(240 50 50)" width="25" x="72" y="47"></rect></svg>
-	</div>
 </div>
 </article>
 </div>

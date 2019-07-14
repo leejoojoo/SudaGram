@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public List<BoardAll> getBoardAll() {
-		return this.boardDao.getBoardAll();
+	public List<BoardAll> getBoardAll(String sort) {
+		return this.boardDao.getBoardAll(sort);
 	}
 	@Override
 	public BoardOne getBoardOne(int b_code) {

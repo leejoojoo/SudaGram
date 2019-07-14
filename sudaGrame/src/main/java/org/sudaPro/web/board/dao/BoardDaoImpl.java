@@ -19,8 +19,9 @@ public class BoardDaoImpl implements BoardDao{
 	private static String namespace = "org.suda.mapper.BoardMapper";
 	
 	@Override
-	public List<BoardAll> getBoardAll() {
-		return session.selectList(namespace+".boardAll");
+	public List<BoardAll> getBoardAll(String sort) {
+		// System.out.println(sort);
+		return session.selectList(namespace+".boardAll", sort);
 	}
 	@Override
 	public BoardOne getBoardOne(int b_code) {

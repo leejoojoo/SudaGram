@@ -4,14 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.suda.mapper.BoardMapper">
-	<select id="boardAll" resultType="org.sudaPro.web.board.vo.BoardAll">
+	<select id="boardAll" resultType="org.sudaPro.web.board.vo.BoardAll" parameterType="java.lang.String">
 		select b.b_code, i.img_img, g_cnt, cm_cnt, img_cnt
 		from(select b.b_code, min(img_code) img_code, count(g_code) g_cnt, count(c.cm_code) cm_cnt, count(img_code) img_cnt
 		from board b join img i on b.b_code = i.b_code
             	 left join good g on b.b_code = g.b_code
             	 left join comm c on c.b_code = b.b_code
 		group by b.b_code
-		order by b.b_code desc)b join img i on b.img_code = i.img_code
+		)b join img i on b.img_code = i.img_code
+		order by ${value} 
 	</select>
 	<select id="boardImg" resultType="java.lang.String">
 		select img_img

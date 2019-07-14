@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.sudaPro.web.board.service.BoardService;
+import org.sudaPro.web.board.vo.BoardAll;
 import org.sudaPro.web.board.vo.ChildComm;
 
 
@@ -20,5 +21,10 @@ public class BoardAjaxController {
 	@RequestMapping("board/ChildComment")
 	public List<ChildComm> getChildComment(int cm_group){
 		return this.boardService.getChildComments(cm_group);
+	}
+	
+	@RequestMapping("boardSort")
+	public List<BoardAll> getBoardSort(String sort){
+		return this.boardService.getBoardAll(sort);
 	}
 }
