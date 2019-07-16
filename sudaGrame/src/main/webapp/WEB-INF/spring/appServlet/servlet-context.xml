@@ -23,5 +23,9 @@
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	
 	<context:component-scan base-package="org.sudaPro.web" />
+<<<<<<< Upstream, based on branch 'ji-eun' of https://github.com/leejoojoo/SudaGram.git
+=======
+<!-- 	<context:component-scan base-package="org.sudaPro.web.controller" /> -->
+>>>>>>> 8360266 mypage
 	
 </beans:beans>

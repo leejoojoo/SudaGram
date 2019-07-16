@@ -19,7 +19,8 @@
 				<div class="M-jxE">
 					<button class="IalUJ " title="프로필 사진 추가">
 						<img alt="프로필 사진 추가" class="be6sR"
-							src="https://instagram.fisb5-1.fna.fbcdn.net/vp/952cda0aaecf724403d1da985c1dcf84/5DA39AF1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fisb5-1.fna.fbcdn.net">
+							src="${myInfo.m_picture }">
+							<!-- https://instagram.fisb5-1.fna.fbcdn.net/vp/952cda0aaecf724403d1da985c1dcf84/5DA39AF1/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fisb5-1.fna.fbcdn.net -->
 					</button>
 					<div>
 						<form enctype="multipart/form-data" method="POST"
@@ -30,7 +31,7 @@
 				</div>
 			</div>
 			<div class="XX1Wc">
-				<h1 class="kHYQv " title="jjjindong">jjjindong</h1>
+				<h1 class="kHYQv " title="jjjindong">${myInfo.m_id }</h1>
 				<button class="_0mzm- sqdOP yWX7d        " type="button">프로필
 					사진 바꾸기</button>
 				<div>
@@ -41,14 +42,14 @@
 				</div>
 			</div>
 		</div>
-		<form class="kWXsT" method="POST">
+		<form action="<%= request.getContextPath() %>/submitNewProfile" class="kWXsT" method="POST">
 			<div class="eE-OA">
 				<aside class="sxIVS  ">
 					<label for="pepName">이름</label>
 				</aside>
 				<div class="ada5V">
 					<input class="JLJ-B zyHYP" aria-required="false" id="pepName"
-						type="text" value="">
+						type="text" value="${myInfo.m_name }">
 				</div>
 			</div>
 			<div class="eE-OA">
@@ -57,7 +58,7 @@
 				</aside>
 				<div class="ada5V">
 					<input class="JLJ-B zyHYP" aria-required="true" id="pepUsername"
-						type="text" value="jjjindong">
+						type="text" value="${myInfo.m_id }">
 				</div>
 			</div>
 			<div class="eE-OA">
@@ -67,7 +68,7 @@
 				<div class="ada5V">
 					<input class="JLJ-B zyHYP" aria-required="false" id="pepWebsite"
 						type="text"
-						value="https://m.blog.naver.com/PostList.nhn?blogId=wlsehdgus23">
+						value="${myInfo.m_website }">
 				</div>
 			</div>
 			<div class="eE-OA">
@@ -75,7 +76,7 @@
 					<label for="pepBio">소개</label>
 				</aside>
 				<div class="ada5V">
-					<textarea class="p7vTm" id="pepBio"></textarea>
+					<textarea class="p7vTm" id="pepBio">${myInfo.m_introduction }</textarea>
 				</div>
 			</div>
 			<div class="eE-OA">
@@ -94,7 +95,7 @@
 				</aside>
 				<div class="ada5V">
 					<input class="JLJ-B zyHYP" aria-required="false" id="pepEmail"
-						type="text" value="wlsehdgus23@naver.com">
+						type="text" value="${myInfo.m_email }">
 				</div>
 			</div>
 			<div class="eE-OA">
@@ -103,7 +104,7 @@
 				</aside>
 				<div class="ada5V">
 					<input class="JLJ-B zyHYP" aria-required="false"
-						id="pepPhone Number" type="text" value="+82 10-3230-1521">
+						id="pepPhone Number" type="text" value="${myInfo.m_phone }">
 				</div>
 			</div>
 			<div
@@ -129,8 +130,8 @@
 				</aside>
 				<div class="ada5V">
 					<div class="fi8zo">
-						<button class="_0mzm- sqdOP  L3NKy       " disabled=""
-							type="button">제출</button>
+						<button class="_0mzm- sqdOP  L3NKy       "
+							type="submit">제출</button>
 					</div>
 				</div>
 			</div>
