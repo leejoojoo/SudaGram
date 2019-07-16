@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 
 		update member set m_name = #{m_name}, m_id = #{m_id}, m_website = #{m_website}, 
 		m_introduction = #{m_introduction}, m_email = #{m_email}, m_phone = #{m_phone} 
-		where m_code = #{m_code}
+		where m_code = #{m_code}  
 		 -->
 		 
 		 <!-- 
