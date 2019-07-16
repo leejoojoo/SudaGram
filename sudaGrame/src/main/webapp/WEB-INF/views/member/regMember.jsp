@@ -17,7 +17,7 @@
 				<form class="XFYOY" method="post">
 					<h2 class="vvzhL ">친구들의 사진과 동영상을 보려면 가입하세요.</h2>
 					<div
-						class="                  Igw0E     IwRSH      eGOV_         _4EzTm    bkEs3                          CovQj                  jKUp7          DhRcB                                                    ">
+						class="Igw0E IwRSH  eGOV_  _4EzTm    bkEs3 CovQj jKUp7 DhRcB ">
 					</div>
 					<div class="K-1uj hKTMS">
 					</div>
