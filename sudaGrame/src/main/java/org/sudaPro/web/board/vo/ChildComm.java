@@ -6,7 +6,21 @@ public class ChildComm {
 	private String cm_content;
 	private Date cm_date;
 	private String m_id;
+	private String pm_id;
+	private int cm_code;
 	
+	public int getCm_code() {
+		return cm_code;
+	}
+	public void setCm_code(int cm_code) {
+		this.cm_code = cm_code;
+	}
+	public String getPm_id() {
+		return pm_id;
+	}
+	public void setPm_id(String pm_id) {
+		this.pm_id = pm_id;
+	}
 	public String getCm_content() {
 		return cm_content;
 	}
