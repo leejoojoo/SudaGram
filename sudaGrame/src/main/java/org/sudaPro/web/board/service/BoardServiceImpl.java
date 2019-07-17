@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public List<BoardAll> getBoardAll() {
-		return this.boardDao.getBoardAll();
+	public List<BoardAll> getBoardAll(String sort) {
+		return this.boardDao.getBoardAll(sort);
 	}
 	@Override
 	public BoardOne getBoardOne(int b_code) {
@@ -30,13 +30,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<Comments> getComments(int b_code) {
 		List<Comments> buffer = this.boardDao.getComments(b_code);
-		List<Comments> list = new ArrayList<>();
+		List<Comments> list = new ArrayList<Comments>();
+		
 		for (int i = 0; i < buffer.size(); i++) {
 			Comments comm = buffer.get(i);
-			comm.setChildComm(this.boardDao.getChildComm(comm.getCm_code()));
+			int childCnt = this.boardDao.getChildCnt(b_code, comm.getCm_code());
+			comm.setCnt_child(childCnt);
 			list.add(comm);
 		}
-		return list;
+		return buffer;
 	}
 	@Override
 	public List<String> getImges(int b_code) {
@@ -46,6 +48,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<ChildComm> getChildComments(int cm_group) {
 		return this.boardDao.getChildComm(cm_group);
+	}
+
+	@Override
+	public int insertComm(String content, int cm_group, int b_code, int m_code, String pm_id) {
+		return this.boardDao.insertComm(content, cm_group, b_code, m_code, pm_id);
 	}
 	
 }
